@@ -1,7 +1,7 @@
-import "./App.css";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
 import DisplayDiaries from "./components/DisplayDiaries";
+import AddNewCard from "./components/AddNewCardButton";
 
 function App() {
   const date = new Date();
@@ -76,6 +76,8 @@ function App() {
         <Navbar />
         <Search />
         <DisplayDiaries diaries={diaries} />
+
+        <AddNewCard />
       </div>
     </>
   );
