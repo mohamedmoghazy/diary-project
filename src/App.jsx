@@ -1,7 +1,7 @@
-import "./App.css";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
 import DisplayDiaries from "./components/DisplayDiaries";
+import AddNewCard from "./components/AddNewCardButton";
 
 function App() {
   return (
@@ -9,8 +9,8 @@ function App() {
       <div>
         <Navbar />
         <Search />
-        <h1 className="text-3xl text-blue-600 font-bold">Personal Diary</h1>
         <DisplayDiaries />
+        <AddNewCard />
       </div>
     </>
   );
