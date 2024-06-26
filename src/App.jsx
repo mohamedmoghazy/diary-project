@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
 import DisplayDiaries from "./components/DisplayDiaries";
-import AddNewCard from "./components/AddNewCardButton";
+import AddNewCard from "./components/NewCard";
 import LastDiary from "./components/LastDiary";
 
 function App() {
@@ -90,11 +90,10 @@ function App() {
   return (
     <>
       <div>
-        <Navbar />
+        <Navbar />        
         <Search />
         <LastDiary diaries={diaries[0]} />
         <DisplayDiaries diaries={diaries.slice(1)} />
-        <AddNewCard />
       </div>
     </>
   );
