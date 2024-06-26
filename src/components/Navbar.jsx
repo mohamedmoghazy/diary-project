@@ -1,3 +1,5 @@
+import Search from "./Search";
+
 export default function Navbar() {
   return (
     <header className="p-10 flex justify-between items-center bg-slategray shadow-xl h-32">

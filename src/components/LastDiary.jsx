@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 export default function LastDiary({ diaries }) {
-  console.log(diaries);
+  // console.log(diaries);
   return (
     <div className="my-12 container m-auto px-8 lg:px-0">
       <div className=" md:flex bg-[#F6F5F5] drop-shadow-md" key="{diaries.id}">
@@ -42,9 +43,11 @@ export default function LastDiary({ diaries }) {
           </div>
 
           <p className="text-md">0 Comments</p>
-          <button className="bg-[#40B2C9] text-white font-bold px-8 py-2 rounded-tl-lg absolute bottom-0 right-0 hover:bg-cyan-700">
-            Read more
-          </button>
+          <Link to={`/diary-detail/`}>
+            <button className="bg-[#40B2C9] text-white font-bold px-8 py-2 rounded-tl-lg absolute bottom-0 right-0 hover:bg-cyan-700">
+              Read more
+            </button>
+          </Link>
         </div>
       </div>
     </div>
