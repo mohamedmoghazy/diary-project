@@ -90,7 +90,7 @@ function App() {
   return (
     <>
       <div>
-        <Navbar />        
+        <Navbar />
         <Search />
         <LastDiary diaries={diaries[0]} />
         <DisplayDiaries diaries={diaries.slice(1)} />
