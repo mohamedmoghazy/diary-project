@@ -7,7 +7,7 @@ export default function Navbar() {
           My Diary
         </span>
       </div>
-
+      <Search />
       <button
         type="button"
         className="hover:scale-110 rounded-md font-semibold bg-darkkorchid text-white w-36 h-10 font-poppins"

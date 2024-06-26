@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function DiaryCard({ diary }) {
   return (
     <div className="flex flex-col bg-[#F6F5F5] drop-shadow-md" key="{diary.id}">
@@ -28,10 +30,14 @@ export default function DiaryCard({ diary }) {
       </div>
       <div className="flex justify-between">
         <p className="text-md pl-6 pb-6">0 Comments</p>
-        <button className="bg-[#40B2C9] text-white font-bold px-4 py-2 rounded-tl-lg absolute bottom-0 right-0 hover:bg-cyan-700 ">
-          Read more
-        </button>
+        <Link to={`/diary-detail/${diary.id}`}>
+          <button className="bg-[#40B2C9] text-white font-bold px-4 py-2 rounded-tl-lg absolute bottom-0 right-0 hover:bg-cyan-700">
+            Read more
+          </button>
+        </Link>
       </div>
     </div>
   );
 }
+
+// onClick={() => navigate("diary-detail/" + diary.id)}
