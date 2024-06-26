@@ -13,7 +13,7 @@ export default function DiaryCard({ diary }) {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-calendar4-event"
+                className="bi bi-calendar4-event"
                 viewBox="0 0 16 16"
               >
                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
@@ -28,7 +28,7 @@ export default function DiaryCard({ diary }) {
       </div>
       <div className="flex justify-between">
         <p className="text-md pl-6 pb-6">0 Comments</p>
-        <button className="bg-[#40B2C9] text-white font-bold px-4 py-2 rounded-tl-lg absolute bottom-0 right-0 ">
+        <button className="bg-[#40B2C9] text-white font-bold px-4 py-2 rounded-tl-lg absolute bottom-0 right-0 hover:bg-cyan-700 ">
           Read more
         </button>
       </div>
