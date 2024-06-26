@@ -1,4 +1,7 @@
+import { useState, useEffect } from "react";
+
 export default function DiaryDetail({ diaries }) {
+  const [diaryId, setDiaryId] = useState([]);
   return (
     <div className="my-14 container lg:px-[300px] m-auto px-8">
       <h2 className="text-3xl text-[#40B2C9] font-bold text-center mb-12">
