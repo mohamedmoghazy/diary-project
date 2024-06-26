@@ -1,3 +1,5 @@
+import Search from "./Search";
+
 export default function Navbar() {
   return (
     <header className="p-10 flex justify-between items-center bg-slategray shadow-xl h-32">
@@ -6,7 +8,7 @@ export default function Navbar() {
           My Diary
         </span>
       </div>
-
+      <Search />
       <button
         type="button"
         className="hover:scale-110 rounded-md font-semibold bg-darkkorchid text-white w-36 h-10 font-poppins"
