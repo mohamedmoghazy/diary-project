@@ -8,7 +8,7 @@ import {
 import Navbar from "./components/Navbar";
 import DisplayDiaries from "./components/DisplayDiaries";
 import DiaryDetail from "./components/DiaryDetail";
-import AddNewCard from "./components/AddNewCardButton";
+import AddNewCard from "./components/NewCard";
 import Footer from "./components/Footer";
 
 const diaries = [
