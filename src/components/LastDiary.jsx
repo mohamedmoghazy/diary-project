@@ -43,7 +43,7 @@ export default function LastDiary({ diaries }) {
           </div>
 
           <p className="text-md">0 Comments</p>
-          <Link to={`/diary-detail/`}>
+          <Link to={`/diary-detail/0`}>
             <button className="bg-[#40B2C9] text-white font-bold px-8 py-2 rounded-tl-lg absolute bottom-0 right-0 hover:bg-cyan-700">
               Read more
             </button>
