@@ -43,7 +43,7 @@ export default function DiaryDetail({ diaries }) {
       </div>
 
       <p className="my-10 text-justify">{diaryDetail.content}</p>
-      <div className="flex justify-between">
+      <div className="flex justify-center">
         <Link to={`/`}>
           <button
             type="button"
