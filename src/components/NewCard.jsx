@@ -2,7 +2,7 @@ import Dropdown from "./Dropdown";
 import tags from "../Data/tags";
 
 
-function AddNewCard()
+function AddNewCard({ HideModal })
 {
     return (
         <>
@@ -32,7 +32,7 @@ function AddNewCard()
                 
                 <div className="flex space-x-4 pt-4 justify-end">
                     <button
-                        onKeyDown={OnCancelClicked}
+                        onClick={HideModal}
                         className="w-32 h-10 hover:scale-110 rounded-md font-semibold bg-gray-400 text-white font-poppins">
                         Cancel
                     </button>
@@ -48,11 +48,6 @@ function AddNewCard()
 }
 
 function OnpublishClicked(event)
-{
-
-}
-
-function OnCancelClicked(event)
 {
 
 }
