@@ -93,24 +93,19 @@ const router = createBrowserRouter(
   )
 );
 
-
-
 function App()
 {
-  const [modalIsVisible, setModalIsVisible] = useState(true);
+  const [modalIsVisible, setModalIsVisible] = useState(false);
 
   return (
     <>
       <Navbar OnNewCardClicked={ShowModal}></Navbar>
 
       <Modal modalIsVisible={modalIsVisible} HideModal={HideModal}>
-        <AddNewCard />
+        <AddNewCard HideModal={HideModal}/>
       </Modal>
 
       <RouterProvider router={router} />
-      {/* <Navbar />
-      <DisplayDiaries diaries={diaries} />
-      <Footer /> */}
     </>
   );
 
