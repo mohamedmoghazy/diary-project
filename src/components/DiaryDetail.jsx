@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function DiaryDetail({ diaries }) {
   const { id } = useParams();
-  const [diaryDetail, setDiaryDetail] = useState();
+  const [diaryDetail, setDiaryDetail] = useState(0);
 
   useEffect(() => {
-    fetch(diaries[id])
-      .then((res) => res.json())
-      .then(setDiaryDetail)
-      .catch(console.error);
+    setDiaryDetail(diaries[id]);
   }, []);
 
   return (
@@ -45,6 +43,16 @@ export default function DiaryDetail({ diaries }) {
       </div>
 
       <p className="my-10 text-justify">{diaryDetail.content}</p>
+      <div className="flex justify-between">
+        <Link to={`/`}>
+          <button
+            type="button"
+            className="hover:scale-110 rounded-md font-semibold bg-darkkorchid text-white w-36 h-10 font-poppins"
+          >
+            Go back
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
