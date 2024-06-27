@@ -99,10 +99,6 @@ function App() {
 
       <RouterProvider router={router} />
       <Footer />
-
-      {/* <Navbar />
-      <DisplayDiaries diaries={diaries} />
-      <Footer /> */}
     </>
   );
 
