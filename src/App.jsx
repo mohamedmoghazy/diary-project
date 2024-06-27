@@ -5,11 +5,14 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import DisplayDiaries from "./components/DisplayDiaries";
 import DiaryDetail from "./components/DiaryDetail";
 import AddNewCard from "./components/NewCard";
 import Footer from "./components/Footer";
+import Modal from "./components/Modal";
+import React, { useState } from 'react';
 
 const diaries = [
   {
@@ -71,7 +74,7 @@ const diaries = [
 const PageLayout = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Outlet />
       <Footer />
     </>
@@ -90,16 +93,36 @@ const router = createBrowserRouter(
   )
 );
 
-function App() {
+
+
+function App()
+{
+  const [modalIsVisible, setModalIsVisible] = useState(true);
+
   return (
     <>
+      <Navbar OnNewCardClicked={ShowModal}></Navbar>
+
+      <Modal modalIsVisible={modalIsVisible} HideModal={HideModal}>
+        <AddNewCard />
+      </Modal>
+
       <RouterProvider router={router} />
       {/* <Navbar />
       <DisplayDiaries diaries={diaries} />
-      <AddNewCard />
       <Footer /> */}
     </>
   );
+
+  function HideModal()
+  {
+    setModalIsVisible(false);
+  }
+
+  function ShowModal()
+  {
+    setModalIsVisible(true);
+  }
 }
 
 export default App;

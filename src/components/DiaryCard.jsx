@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
-export default function DiaryCard({ diary }) {
+export default function DiaryCard({ diary }) 
+{
   return (
     <div className="flex flex-col bg-[#F6F5F5] drop-shadow-md" key="{diary.id}">
       <img src={diary.coverImage} alt="" className="w-full" />

@@ -16,7 +16,7 @@ const Dropdown = ({ options }) =>
             name="options"
             value={selectedOption}
             onChange={handleChange}
-            className="font-poppins bg-gray-200 p-[10px] rounded-md border-opacity-80 border-[1px]
+            className="w-1/2 font-poppins bg-gray-200 p-[10px] rounded-md border-opacity-80 border-[1px]
                     border-gray-300 font-semibold
                     placeholder-gray-400 placeholder:text-2xl placeholder:font-poppins"
         >

@@ -10,9 +10,9 @@ export default function DisplayDiaries({ diaries }) {
           Last diary entries
         </h2>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
-          {diaries
-            .map((diary) => <DiaryCard key={diary.id} diary={diary} />)
-            .slice(1)}
+          {
+           diaries.map((diary) => <DiaryCard key={diary.id} diary={diary} />).slice(1)
+          }
         </div>
       </div>
     </>

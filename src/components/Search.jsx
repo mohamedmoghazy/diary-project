@@ -4,7 +4,7 @@ export default function Search() {
       <div className="flex">
       <input className="p-2 rounded-md outline-none" type="text" placeholder="Search diaries..." /> 
       
-      <button type="button" class="hover:scale-110 rounded-md font-semibold bg-darkkorchid text-white w-36 h-10 font-poppins"> 
+      <button type="button" className="hover:scale-110 rounded-md font-semibold bg-darkkorchid text-white w-36 h-10 font-poppins"> 
       Search
       </button>
     
