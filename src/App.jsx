@@ -86,7 +86,7 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  const [modalIsVisible, setModalIsVisible] = useState(true);
+  const [modalIsVisible, setModalIsVisible] = useState(false);
 
   return (
     <>
@@ -94,7 +94,7 @@ function App() {
       {/* <TagFilter /> */}
 
       <Modal modalIsVisible={modalIsVisible} HideModal={HideModal}>
-        <AddNewCard />
+        <AddNewCard HideModal={HideModal} />
       </Modal>
 
       <RouterProvider router={router} />
