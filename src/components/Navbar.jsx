@@ -1,6 +1,7 @@
 import Search from "./Search";
 
-export default function Navbar() {
+function Navbar({ OnNewCardClicked })
+{
   return (
     <header className="p-10 flex justify-between items-center bg-slategray shadow-xl h-32">
       <div className="flex items-center p-32">
@@ -10,6 +11,7 @@ export default function Navbar() {
       </div>
       <Search />
       <button
+        onClick={OnNewCardClicked}
         type="button"
         className="hover:scale-110 rounded-md font-semibold bg-darkkorchid text-white w-36 h-10 font-poppins"
       >
@@ -18,3 +20,5 @@ export default function Navbar() {
     </header>
   );
 }
+
+export default Navbar;
