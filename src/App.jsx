@@ -12,7 +12,8 @@ import DiaryDetail from "./components/DiaryDetail";
 import AddNewCard from "./components/NewCard";
 import Footer from "./components/Footer";
 import Modal from "./components/Modal";
-import React, { useState } from 'react';
+import TagFilter from "./components/TagFilter";
+import React, { useState } from "react";
 
 const diaries = [
   {
@@ -71,56 +72,54 @@ const diaries = [
   },
 ];
 
-const PageLayout = () => {
-  return (
-    <>
-      {/* <Navbar /> */}
-      <Outlet />
-      <Footer />
-    </>
-  );
-};
+// const PageLayout = () => {
+//   return (
+//     <>
+//       <Outlet />
+//       <Footer />
+//     </>
+//   );
+// };
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="" element={<PageLayout />}>
-      <Route index element={<DisplayDiaries diaries={diaries} />} />
+    <>
+      <Route path="/" element={<DisplayDiaries diaries={diaries} />} />
       <Route
-        path="diary-detail"
-        element={<DiaryDetail diaries={diaries[0]} />}
+        path="diary-detail/:id"
+        element={<DiaryDetail diaries={diaries} />}
       />
-    </Route>
+    </>
   )
 );
 
-
-
-function App()
-{
+function App() {
   const [modalIsVisible, setModalIsVisible] = useState(true);
 
   return (
     <>
       <Navbar OnNewCardClicked={ShowModal}></Navbar>
+      {/* <TagFilter /> */}
 
       <Modal modalIsVisible={modalIsVisible} HideModal={HideModal}>
         <AddNewCard />
       </Modal>
 
       <RouterProvider router={router} />
+      <DiaryDetail diaries={diaries} />
+      <Footer />
+
       {/* <Navbar />
       <DisplayDiaries diaries={diaries} />
       <Footer /> */}
     </>
   );
 
-  function HideModal()
-  {
+  function HideModal() {
     setModalIsVisible(false);
   }
 
-  function ShowModal()
-  {
+  function ShowModal() {
     setModalIsVisible(true);
   }
 }
