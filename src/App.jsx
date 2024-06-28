@@ -14,9 +14,11 @@ import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 import TagFilter from "./components/TagFilter";
 
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { data } from "autoprefixer";
 import { addToLocalStorageArray, getFromLocalStorage, removeFromLocalStorageArray } from './Util/localStorageUtil';
+
+const localStorageKey = "saveddata";
 
 const diaries = [
   {
@@ -89,14 +91,20 @@ const router = createBrowserRouter(
 
 function App() {
   const [modalIsVisible, setModalIsVisible] = useState(false);
-  const [dataArray, setData] = useState([]);
+  const [items, setItems] = useState([]);
 
-  function AddNewCard(data)
+  useEffect(() => {
+        const storedItems = getFromLocalStorage(localStorageKey);
+        setItems(storedItems);
+    }, []);
+
+  function AddNewCard(newItem)
   {
-    setData((dataArray) => [data, ...dataArray]);
+      addToLocalStorageArray(localStorageKey, newItem);
+      setItems([...items, newItem]);
   }
 
-  console.log(dataArray);
+  console.log(items);
 
   return (
     <>
