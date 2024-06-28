@@ -2,7 +2,7 @@ import Dropdown from "./Dropdown";
 import tags from "../Data/tags";
 import { useState } from "react";
 
-function NewCard({ HideModal , onAddNewCard})
+function NewCard({HideModal , onAddNewCard})
 {
     let [title, setTile] = useState('');
     let [tag, setTag] = useState('');
@@ -74,10 +74,10 @@ function NewCard({ HideModal , onAddNewCard})
 
         const data =
         {
-            id:'1',
+            id:0,
             title: title,
             tag: tag,
-            coverImage: coverImage,
+            coverImage: "https://picsum.photos/id/20/660/400",
             date:  new Date(),
             content: content
         };
