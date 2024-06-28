@@ -9,12 +9,16 @@ import {
 import Navbar from "./components/Navbar";
 import DisplayDiaries from "./components/DisplayDiaries";
 import DiaryDetail from "./components/DiaryDetail";
-import AddNewCard from "./components/NewCard";
+import NewCard from "./components/NewCard";
 import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 import TagFilter from "./components/TagFilter";
 
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
+import { data } from "autoprefixer";
+import { addToLocalStorageArray, getFromLocalStorage, removeFromLocalStorageArray } from './Util/localStorageUtil';
+
+const localStorageKey = "saveddata";
 
 const diaries = [
   {
@@ -87,14 +91,28 @@ const router = createBrowserRouter(
 
 function App() {
   const [modalIsVisible, setModalIsVisible] = useState(false);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+        const storedItems = getFromLocalStorage(localStorageKey);
+        setItems(storedItems);
+    }, []);
+
+  function AddNewCard(newItem)
+  {
+      addToLocalStorageArray(localStorageKey, newItem);
+      setItems([...items, newItem]);
+  }
+
+  console.log(items);
 
   return (
     <>
       <Navbar OnNewCardClicked={ShowModal}></Navbar>
       {/* <TagFilter /> */}
-
+            
       <Modal modalIsVisible={modalIsVisible} HideModal={HideModal}>
-        <AddNewCard HideModal={HideModal} />
+        <NewCard HideModal={HideModal} onAddNewCard={AddNewCard}/>
       </Modal>
 
       <RouterProvider router={router} />
