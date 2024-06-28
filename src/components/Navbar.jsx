@@ -1,7 +1,6 @@
 import Search from "./Search";
 
-function Navbar({ OnNewCardClicked })
-{
+function Navbar({ OnNewCardClicked }) {
   return (
     <header className="p-10 flex justify-between items-center bg-slategray shadow-xl h-32">
       <div className="flex items-center p-32">
