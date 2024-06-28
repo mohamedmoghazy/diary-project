@@ -23,24 +23,29 @@ function NewCard({ HideModal, onAddNewCard }) {
             placeholder="TITLE..."
           />
         </p>
-        <div className="flex w-full space-x-4 h-10">
+        <div className="flex w-full space-x-4 h-12">
           <Dropdown
             onChange={onTagValueChanged}
             className=""
             options={tags}
           ></Dropdown>
-          <div
-            className="flex w-1/2 items-center pl-4 font-poppins h-10 bg-gray-200 rounded-md border-opacity-80 border-[1px]
-                    border-gray-300 font-semibold"
-          >
-            <h3 className="font-poppins text-gray-400 w-full">
-              {" "}
-              Select cover image{" "}
-            </h3>
-            <button className="hover:scale-110 rounded-md font-semibold bg-darkkorchid text-white w-1/3 h-full font-poppins">
-              Upload
-            </button>
+          <div className="flex w-1/2 items-center pl-4">
+            <input
+              onChange={onImgValueChanged}
+              className="block w-full h-10 bg-gray-200 p-[10px] rounded-md border-opacity-80 border-[1px]
+                    border-gray-300 font-semibold
+                    placeholder-gray-400 placeholder:text-md placeholder:font-poppins"
+              type="text"
+              id="coverImage"
+              required
+              placeholder="Enter your image url"
+            />
           </div>
+        </div>
+        <div className="flex justify-end">
+          <small className="text-gray-400">
+            <p>For example: https://picsum.photos/id/20/660/400</p>
+          </small>
         </div>
         <textarea
           onChange={onContentValueChanged}
@@ -77,6 +82,10 @@ function NewCard({ HideModal, onAddNewCard }) {
     tag = event.target.value;
   }
 
+  function onImgValueChanged(event) {
+    coverImage = event.target.value;
+  }
+
   function onContentValueChanged(event) {
     content = event.target.value;
   }
@@ -88,8 +97,9 @@ function NewCard({ HideModal, onAddNewCard }) {
       id: 0,
       title: title,
       tag: tag,
-      coverImage: "https://picsum.photos/660/400",
-      date: new Date(),
+      //   coverImage: "https://picsum.photos/660/400",
+      coverImage: coverImage,
+      date: new Date().getDate(),
       content: content,
     };
 

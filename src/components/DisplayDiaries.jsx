@@ -1,7 +1,14 @@
+import { useState, useEffect } from "react";
 import DiaryCard from "./DiaryCard";
 import LastDiary from "./LastDiary";
 
 export default function DisplayDiaries({ diaries }) {
+  const [showDiaries, setShowDiaries] = useState(0);
+
+  useEffect(() => {
+    setShowDiaries(diaries);
+  }, []);
+
   return (
     <>
       <LastDiary diaries={diaries[0]} />
@@ -10,9 +17,9 @@ export default function DisplayDiaries({ diaries }) {
           Last diary entries
         </h2>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
-          {
-           diaries.map((diary) => <DiaryCard key={diary.id} diary={diary} />).slice(1)
-          }
+          {diaries
+            .map((diary) => <DiaryCard key={diary.id} diary={diary} />)
+            .slice(1)}
         </div>
       </div>
     </>
