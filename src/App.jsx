@@ -9,10 +9,12 @@ import {
 import Navbar from "./components/Navbar";
 import DisplayDiaries from "./components/DisplayDiaries";
 import DiaryDetail from "./components/DiaryDetail";
-import AddNewCard from "./components/NewCard";
+import NewCard from "./components/NewCard";
 import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 import React, { useState } from 'react';
+import { data } from "autoprefixer";
+import { addToLocalStorageArray, getFromLocalStorage, removeFromLocalStorageArray } from './Util/localStorageUtil';
 
 const diaries = [
   {
@@ -96,13 +98,21 @@ const router = createBrowserRouter(
 function App()
 {
   const [modalIsVisible, setModalIsVisible] = useState(false);
+  const [dataArray, setData] = useState([]);
+
+  function AddNewCard(data)
+  {
+    setData((dataArray) => [data, ...dataArray]);
+  }
+
+  console.log(dataArray);
 
   return (
     <>
       <Navbar OnNewCardClicked={ShowModal}></Navbar>
-
+            
       <Modal modalIsVisible={modalIsVisible} HideModal={HideModal}>
-        <AddNewCard HideModal={HideModal}/>
+        <NewCard HideModal={HideModal} onAddNewCard={AddNewCard}/>
       </Modal>
 
       <RouterProvider router={router} />
