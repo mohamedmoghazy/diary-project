@@ -102,7 +102,7 @@ function App()
 
   function AddNewCard(newItem)
   {
-    newItem.id = getNextId(diaries);
+    newItem.id = getNextId(items);
     addToLocalStorageArray(localStorageKey, newItem);
     setItems(prevItems => [...prevItems, newItem]);
   }
