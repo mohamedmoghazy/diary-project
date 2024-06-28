@@ -1,7 +1,3 @@
-const tags = [
-    "tag1",
-    "tag2",
-    "tag3"
-];
+const tags = ["My day", "Feelings", "Travel", "Cooking"];
 
 export default tags;
