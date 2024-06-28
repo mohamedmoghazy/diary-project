@@ -24,11 +24,23 @@ function NewCard({ HideModal, onAddNewCard }) {
           />
         </p>
         <div className="flex w-full space-x-4 h-12">
-          <Dropdown
+          {/* <Dropdown
             onChange={onTagValueChanged}
             className=""
             options={tags}
-          ></Dropdown>
+          ></Dropdown> */}
+          <div className="flex w-1/2 items-center">
+            <input
+              onChange={onTagValueChanged}
+              className="block w-full h-10 bg-gray-200 p-[10px] rounded-md border-opacity-80 border-[1px]
+                    border-gray-300 font-semibold
+                    placeholder-gray-400 placeholder:text-md placeholder:font-poppins"
+              type="text"
+              id="tag"
+              required
+              placeholder="Enter tag"
+            />
+          </div>
           <div className="flex w-1/2 items-center pl-4">
             <input
               onChange={onImgValueChanged}
@@ -90,6 +102,14 @@ function NewCard({ HideModal, onAddNewCard }) {
     content = event.target.value;
   }
 
+  function formatDate(date) {
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
+  }
+
   function SubmitForm(event) {
     event.preventDefault();
 
@@ -99,7 +119,7 @@ function NewCard({ HideModal, onAddNewCard }) {
       tag: tag,
       //   coverImage: "https://picsum.photos/660/400",
       coverImage: coverImage,
-      date: new Date().getDate(),
+      date: formatDate(new Date()),
       content: content,
     };
 
