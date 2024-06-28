@@ -40,7 +40,7 @@ const Search = () => {
         />
         <button
           type="button"
-          className="hover:scale-110 rounded-md font-semibold bg-darkorchid text-darkorchid w-36 h-10 font-poppins"
+          className="hover:scale-110 rounded-md font-semibold bg-darkkorchid text-white w-36 h-10 font-poppins"
           onClick={handleSearch}
         >
           Search

@@ -1,14 +1,7 @@
-import { useState, useEffect } from "react";
 import DiaryCard from "./DiaryCard";
 import LastDiary from "./LastDiary";
 
 export default function DisplayDiaries({ diaries }) {
-  const [showDiaries, setShowDiaries] = useState(0);
-
-  useEffect(() => {
-    setShowDiaries(diaries);
-  }, []);
-
   return (
     <>
       <LastDiary diaries={diaries[0]} />
