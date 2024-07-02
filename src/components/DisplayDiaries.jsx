@@ -1,7 +1,12 @@
 import DiaryCard from "./DiaryCard";
 import LastDiary from "./LastDiary";
 
-export default function DisplayDiaries({ diaries }) {
+export default function DisplayDiaries({ diaries })
+{
+  if (!diaries || diaries.length === 0)
+  {
+    return <p className="flex justify-center text-xl font-poppins">No diaries available.</p>;
+  }
   return (
     <>
       <LastDiary diaries={diaries[0]} />

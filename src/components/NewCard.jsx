@@ -117,7 +117,6 @@ function NewCard({ HideModal, onAddNewCard }) {
       id: 0,
       title: title,
       tag: tag,
-      //   coverImage: "https://picsum.photos/660/400",
       coverImage: coverImage,
       date: formatDate(new Date()),
       content: content,

@@ -1,6 +1,7 @@
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  json,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -17,21 +18,43 @@ import {
   getFromLocalStorage,
 } from "./Util/localStorageUtil";
 
-const localStorageKey = "saveddata";
+// const localStorageKey = "saveddata";
 
-function App() {
+function App()
+{
+  
   const [modalIsVisible, setModalIsVisible] = useState(false);
-  const [items, setItems] = useState(getFromLocalStorage(localStorageKey));
+  const [items, setItems] = useState([]);
 
-  useEffect(() => {
-    const storedItems = getFromLocalStorage(localStorageKey);
-    setItems(storedItems);
+  useEffect(() =>
+  {
+    async function fetchItems()
+    {
+      const resoponse = await fetch('http://localhost:8080/items')
+      const data = await resoponse.json();
+      setItems(data.items);
+    }
+
+    fetchItems();
   }, []);
 
-  function AddNewCard(newItem) {
+  function AddNewCard(newItem)
+  {
     newItem.id = getNextId(items);
-    addToLocalStorageArray(localStorageKey, newItem);
-    setItems((prevItems) => [...prevItems, newItem]);
+    addItemHandler(newItem);
+  }
+
+  function addItemHandler (newItem)
+  {
+    // addToLocalStorageArray(localStorageKey, newItem);
+
+    fetch('http://localhost:8080/items' ,{
+      method: 'POST',
+      body: JSON.stringify(newItem),
+      headers: {'Content-Type': 'application/json'}
+    });
+    
+    setItems((existingItems) => [...existingItems, newItem]);
   }
 
   const router = createBrowserRouter(
