@@ -13,26 +13,22 @@ import NewCard from "./components/NewCard";
 import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 import React, { useState, useEffect } from "react";
-import {
-  addToLocalStorageArray,
-  getFromLocalStorage,
-} from "./Util/localStorageUtil";
-
-// const localStorageKey = "saveddata";
 
 function App()
 {
-  
   const [modalIsVisible, setModalIsVisible] = useState(false);
+  const [isFetchingData, setIsFetching] = useState(false);
   const [items, setItems] = useState([]);
 
   useEffect(() =>
   {
     async function fetchItems()
     {
+      setIsFetching(true);
       const resoponse = await fetch('http://localhost:8080/items')
       const data = await resoponse.json();
       setItems(data.items);
+      setIsFetching(false);
     }
 
     fetchItems();
@@ -46,8 +42,6 @@ function App()
 
   function addItemHandler (newItem)
   {
-    // addToLocalStorageArray(localStorageKey, newItem);
-
     fetch('http://localhost:8080/items' ,{
       method: 'POST',
       body: JSON.stringify(newItem),
@@ -60,10 +54,11 @@ function App()
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route path="/" element={<DisplayDiaries diaries={items} />} />
+        <Route path="/" element={<DisplayDiaries diaries={items} isFetchingData={isFetchingData} />} />
+
         <Route
           path="diary-detail/:id"
-          element={<DiaryDetail diaries={items} />}
+          element={<DiaryDetail diaries={items} />}            
         />
       </>
     )
@@ -76,9 +71,9 @@ function App()
       <Modal modalIsVisible={modalIsVisible} HideModal={HideModal}>
         <NewCard HideModal={HideModal} onAddNewCard={AddNewCard} />
       </Modal>
-
+      
       <RouterProvider router={router} />
-
+      
       <Footer />
     </>
   );

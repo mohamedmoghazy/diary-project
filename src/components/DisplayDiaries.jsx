@@ -1,12 +1,17 @@
 import DiaryCard from "./DiaryCard";
 import LastDiary from "./LastDiary";
 
-export default function DisplayDiaries({ diaries })
+export default function DisplayDiaries({ diaries, isFetchingData })
 {
-  if (!diaries || diaries.length === 0)
+  if (isFetchingData)
   {
-    return <p className="flex justify-center text-xl font-poppins">No diaries available.</p>;
+    return <p className="flex justify-center text-xl font-poppins p-8">Loading Data.</p>;
   }
+  else if (!diaries || diaries.length === 0)
+  {
+    return <p className="flex justify-center text-xl font-poppins p-8">No diaries available.</p>;
+  }
+
   return (
     <>
       <LastDiary diaries={diaries[0]} />
